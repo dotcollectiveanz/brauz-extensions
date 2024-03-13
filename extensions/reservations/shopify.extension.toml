@@ -1,0 +1,8 @@
+type = "pos_ui_extension"
+name = "reservations"
+description = "reservations"
+
+extension_points = [
+  'pos.home.tile.render',
+  'pos.home.modal.render'
+]

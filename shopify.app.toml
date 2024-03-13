@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "7bcd60e8f81fcb2fde9366f79209de0e"
+name = "brauz-extensions"
+application_url = "https://ranges-denmark-opportunities-eg.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "pos-brauz-extentions.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://ranges-denmark-opportunities-eg.trycloudflare.com/auth/callback",
+  "https://ranges-denmark-opportunities-eg.trycloudflare.com/auth/shopify/callback",
+  "https://ranges-denmark-opportunities-eg.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
