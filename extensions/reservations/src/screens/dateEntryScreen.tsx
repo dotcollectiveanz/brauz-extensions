@@ -8,7 +8,8 @@ import {
   Button,
   useExtensionApi,
 } from "@shopify/retail-ui-extensions-react";
-
+import PageHeader from "../components/headers/PageHeader";
+import TopPageLayout from "../components/layouts/TopPageLayout";
 export default function AddDateScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
   const [params, setParams] = useState("");
@@ -19,11 +20,7 @@ export default function AddDateScreen() {
     api.navigation.navigate("AddTimeSlotScreen");
     return;
   };
-  useEffect(() => {
-    return () => {
-      setShowDatePicker(true);
-    };
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <Screen
@@ -31,19 +28,17 @@ export default function AddDateScreen() {
       title="Chadstone"
       onReceiveParams={(params: { id: string }) => setParams(params.id)}
     >
-      <ScrollView>
-        <Stack paddingVertical="Small" direction="vertical">
-          <Text variant={"headingLarge"}>Select a date</Text>
-          <Text variant={"headingLarge"}>{JSON.stringify(date)}</Text>
-        </Stack>
-        <DatePicker
-          visibleState={[
-            showDatePicker,
-            () => setShowDatePicker(!showDatePicker),
-          ]}
-          onChange={(date: Date) => handleDateSubmit(date)}
-        />
-      </ScrollView>
+      <TopPageLayout>
+        <PageHeader title="Select a date" />
+      </TopPageLayout>
+
+      <DatePicker
+        visibleState={[
+          showDatePicker,
+          () => setShowDatePicker(!showDatePicker),
+        ]}
+        onChange={(date: Date) => handleDateSubmit(date)}
+      />
     </Screen>
   );
 }

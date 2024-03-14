@@ -8,6 +8,7 @@ import {
   SearchBar,
   useExtensionApi,
 } from "@shopify/retail-ui-extensions-react";
+import PageHeader from "./components/headers/PageHeader";
 
 export default function AddStoreScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
@@ -46,12 +47,11 @@ export default function AddStoreScreen() {
     <Screen name="AddStoreScreen" title="AS Logo Tee">
       <ScrollView>
         <Stack direction="vertical">
-          <Stack direction="vertical">
-            <Text variant={"headingLarge"}>Add a store</Text>
-            <Text color="TextSubdued" variant={"body"}>
-              Reservation request will be sent here
-            </Text>
-          </Stack>
+          <PageHeader
+            title="Add a store"
+            description="Reservation request will be sent here"
+          />
+
           <Stack
             flexChildren={true}
             direction="horizontal"

@@ -6,13 +6,13 @@ import {
   Text,
   useExtensionApi,
 } from "@shopify/retail-ui-extensions-react";
-import HomeScreen from "./home";
+import HomeScreen from "./screens/mainScreen";
 import ReservationDetailsScreen from "./reservationDetails";
-import NewReservationScreen from "./newReservation";
+import NewReservationScreen from "./screens/customerSearchAndAddScreen";
 import AddProductScreen from "./addProduct";
 import ProductDetailsScreen from "./productDetails";
 import AddStoreScreen from "./addStore";
-import AddDateScreen from "./addDate";
+import AddDateScreen from "./screens/dateEntryScreen";
 import AddTimeSlotScreen from "./addTimeSlot";
 import ConfirmationScreen from "./confirmationScreen";
 import ReservationReadyScreen from "./reservationReady";

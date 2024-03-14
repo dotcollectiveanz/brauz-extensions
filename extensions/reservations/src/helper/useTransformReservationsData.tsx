@@ -76,10 +76,10 @@ export default function useTransformReservationsData() {
           product_price: formatted_product_price.format(
             reservation.product_total_price,
           ),
-          product_variant: "Black / S",
-          product_sku: "XYZ1234",
+          product_variant: "Black / S", //need to find out where variant is stored
+          product_sku: "XYZ1234", //need to find out where sku is stored
           product_name: reservation.product_name,
-          location: "Chadstone",
+          location: "Chadstone", //need to find out where location is stored
           collection_date: collection_date,
           collection_time: dateFormatter({
             hold_time_from: reservation.hold_time_from,

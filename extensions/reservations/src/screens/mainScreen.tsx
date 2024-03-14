@@ -3,7 +3,6 @@ import {
   Screen,
   ScrollView,
   List,
-  ListProps,
   Button,
   Stack,
   Section,
@@ -13,17 +12,18 @@ import {
   Selectable,
 } from "@shopify/retail-ui-extensions-react";
 import { useState, useEffect } from "react";
-import { data } from "./mock_data/data";
-import useTransformReservationsData from "./helper/useTransformReservationsData";
-export default function HomeScreen() {
+import { data } from "../mock_data/data";
+import useTransformReservationsData from "../helper/useTransformReservationsData";
+import PageHeader from "../components/headers/PageHeader";
+import TopPageLayout from "../components/layouts/TopPageLayout";
+import BottomPageLayout from "../components/layouts/BottomPageLayout";
+export default function MainScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
   const [searchText, setSearchText] = useState("");
   const [test, setTest] = useState({});
   const { transformData, todayReservationList, tomorrowsReservationList } =
     useTransformReservationsData();
-  // const { data, loading, error } = useFetch(
-  //   "https://jsonplaceholder.typicode.com/todos/1",
-  // );
+
   const onTextChangeSearchBar = (value: string) => {
     console.log(value);
     setSearchText(value);
@@ -35,10 +35,8 @@ export default function HomeScreen() {
 
   return (
     <Screen name="home" title="Reservations" label={true}>
-      <Stack direction="vertical" paddingHorizontal="ExtraExtraLarge">
-        <Stack paddingVertical="Small" direction="vertical">
-          <Text variant={"headingLarge"}>Reservations</Text>
-        </Stack>
+      <TopPageLayout>
+        <PageHeader title="Reservations" />
         <Stack flexChildren={true} direction="horizontal">
           <SearchBar
             onTextChange={(value: string) => console.log(value)}
@@ -60,7 +58,7 @@ export default function HomeScreen() {
             <Badge variant={"neutral"} text={"Completed"} />
           </Selectable>
         </Stack>
-      </Stack>
+      </TopPageLayout>
       <ScrollView>
         <Section title="Today">
           <Stack paddingVertical="Small" direction="vertical">
@@ -84,17 +82,13 @@ export default function HomeScreen() {
         </Section>
       </ScrollView>
 
-      <Stack
-        paddingVertical="ExtraLarge"
-        paddingHorizontal="ExtraExtraLarge"
-        direction="vertical"
-      >
+      <BottomPageLayout>
         <Button
           title="Create new reservation"
           type="basic"
           onPress={() => api.navigation.navigate("NewReservationScreen")}
         />
-      </Stack>
+      </BottomPageLayout>
     </Screen>
   );
 }

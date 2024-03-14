@@ -5,14 +5,11 @@ import {
   List,
   Stack,
   useExtensionApi,
-  Badge,
-  Selectable,
+  Section,
 } from "@shopify/retail-ui-extensions-react";
 
 export default function ProductDetailsScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
-  const [params, setParams] = useState("");
-  const [btnDisabled, setBtnDisabled] = useState(true);
 
   const [list, setList] = useState([
     {
@@ -86,25 +83,10 @@ export default function ProductDetailsScreen() {
       title="AS Logo Tee"
     >
       <ScrollView>
-        <Stack direction="vertical">
-          <Stack direction="horizontal">
-            <Selectable onPress={(iten: string) => console.log(iten)}>
-              <Badge variant={"neutral"} text={"Date (newest first)"} />
-            </Selectable>
-            <Selectable onPress={(iten: string) => console.log(iten)}>
-              <Badge variant={"neutral"} text={"Needs action"} />
-            </Selectable>
-            <Selectable onPress={(iten: string) => console.log(iten)}>
-              <Badge variant={"neutral"} text={"Reserved"} />
-            </Selectable>
-            <Selectable onPress={(iten: string) => console.log(iten)}>
-              <Badge variant={"neutral"} text={"Completed"} />
-            </Selectable>
-          </Stack>
-        </Stack>
-
         <Stack paddingVertical="Small" direction="vertical">
-          <List title={list[0].title} data={list[0].data} />
+          <Section>
+            <List title={list[0].title} data={list[0].data} />
+          </Section>
         </Stack>
       </ScrollView>
     </Screen>

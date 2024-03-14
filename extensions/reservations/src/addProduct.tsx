@@ -10,6 +10,7 @@ import {
   Section,
   TextField,
 } from "@shopify/retail-ui-extensions-react";
+import PageHeader from "./components/headers/PageHeader";
 
 export default function AddProductScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
@@ -74,27 +75,25 @@ export default function AddProductScreen() {
       name="AddProductScreen"
       title="Add product"
     >
-      <ScrollView>
-        <Stack direction="vertical">
-          <Stack direction="vertical">
-            <Text variant={"headingLarge"}>Add a product</Text>
-            <Text color="TextSubdued" variant={"body"}>
-              Only one product can be reserved per reservation
-            </Text>
-          </Stack>
-          <Stack
-            flexChildren={true}
-            direction="horizontal"
-            paddingVertical="Large"
-          >
-            <SearchBar
-              onTextChange={(value: string) => console.log(value)}
-              onSearch={(value: string) => console.log(value)}
-              placeholder="Search product"
-            />
-          </Stack>
-        </Stack>
+      <Stack direction="vertical" paddingHorizontal="ExtraExtraLarge">
+        <PageHeader
+          title="Add a product"
+          description="Only one product can be reserved per reservation"
+        />
 
+        <Stack
+          flexChildren={true}
+          direction="horizontal"
+          paddingVertical="Large"
+        >
+          <SearchBar
+            onTextChange={(value: string) => console.log(value)}
+            onSearch={(value: string) => console.log(value)}
+            placeholder="Search product"
+          />
+        </Stack>
+      </Stack>
+      <ScrollView>
         {list[0].data.length < 1 ? (
           <Stack title="Reserved">
             <Text color="TextSubdued" variant={"body"}>

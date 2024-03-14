@@ -7,6 +7,7 @@ import {
   ScrollView,
   useExtensionApi,
 } from "@shopify/retail-ui-extensions-react";
+import PageHeader from "./components/headers/PageHeader";
 
 export default function AddTimeSlotScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
@@ -51,9 +52,8 @@ export default function AddTimeSlotScreen() {
       // onReceiveParams={(params: { id: string }) => setParams(params.id)}
     >
       <ScrollView>
-        <Stack paddingVertical="Small" direction="vertical">
-          <Text variant={"headingLarge"}>Select a time slot</Text>
-        </Stack>
+        <PageHeader title="Select a time slot" />
+
         <Stack paddingVertical="Small" direction="vertical">
           <List title={list[0].title} data={list[0].data} />
         </Stack>

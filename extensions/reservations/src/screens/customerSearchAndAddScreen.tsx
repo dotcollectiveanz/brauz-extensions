@@ -10,8 +10,11 @@ import {
   TextField,
   Button,
 } from "@shopify/retail-ui-extensions-react";
+import PageHeader from "../components/headers/PageHeader";
+import TopPageLayout from "../components/layouts/TopPageLayout";
+import BottomPageLayout from "../components/layouts/BottomPageLayout";
 
-export default function NewReservationScreen() {
+export default function CustomerSearchAndAddScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
   const [params, setParams] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -60,32 +63,26 @@ export default function NewReservationScreen() {
   }, [newCustomer, btnDisabled, setBtnDisabled]);
 
   return (
-    <Screen
-      //   onReceiveParams={(params: string) => handleReceiveParams(params)}
-      name="NewReservationScreen"
-      title="Add customer"
-    >
-      <ScrollView>
-        <Stack direction="vertical">
-          <Stack direction="vertical">
-            <Text variant={"headingLarge"}>Add customer information</Text>
-            <Text color="TextSubdued" variant={"body"}>
-              Reservation updates will be sent here
-            </Text>
-          </Stack>
-          <Stack
-            flexChildren={true}
-            direction="horizontal"
-            paddingVertical="Large"
-          >
-            <SearchBar
-              onTextChange={(value: string) => console.log(value)}
-              onSearch={(value: string) => console.log(value)}
-              placeholder="Search existing customer"
-            />
-          </Stack>
-        </Stack>
+    <Screen name="NewReservationScreen" title="Add customer">
+      <TopPageLayout>
+        <PageHeader
+          title="Add customer information"
+          description=" Reservation updates will be sent here"
+        />
 
+        <Stack
+          flexChildren={true}
+          direction="horizontal"
+          paddingVertical="Large"
+        >
+          <SearchBar
+            onTextChange={(value: string) => console.log(value)}
+            onSearch={(value: string) => console.log(value)}
+            placeholder="Search existing customer"
+          />
+        </Stack>
+      </TopPageLayout>
+      <ScrollView>
         {list[0].data.length < 1 ? (
           <Stack direction="vertical">
             <Text color="TextSubdued" variant={"body"}>
@@ -139,18 +136,14 @@ export default function NewReservationScreen() {
         )}
       </ScrollView>
       {list[0].data.length < 1 && (
-        <Stack
-          paddingVertical="ExtraLarge"
-          paddingHorizontal="ExtraExtraLarge"
-          direction="vertical"
-        >
+        <BottomPageLayout>
           <Button
             title="Create new customer"
             type="basic"
             isDisabled={btnDisabled}
             onPress={() => api.navigation.navigate("NewReservationScreen")}
           />
-        </Stack>
+        </BottomPageLayout>
       )}
     </Screen>
   );
