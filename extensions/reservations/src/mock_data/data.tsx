@@ -64,7 +64,6 @@ export const data = {
             value: 12,
           },
         ],
-
         product_gid: "ZjQ1ZDU2N2ItM2U5ZS00ZmYxLThmZjktYTJjM2EwZGVkMTkw",
         product_thirdparty_id: "123456",
         product_description: "",
