@@ -1,6 +1,6 @@
 # Shopify POS Extensions
 
-POS UI Extensions enable app developers to extend the capabilities of the Shopify POS app at defined extension points. You can use the POS UI Extension components and APIs to develop extensions that feel native to Shopify POS with faster performance. For more information please head to [the official docs] (https://shopify.dev/docs/apps/pos)
+POS UI Extensions enable app developers to extend the capabilities of the Shopify POS app at defined extension points. You can use the POS UI Extension components and APIs to develop extensions that feel native to Shopify POS with faster performance. For more information please head to [the official docs](https://shopify.dev/docs/apps/pos)
 
 # DotApparel POS Extensions
 
@@ -35,6 +35,6 @@ cd brauz-extensions
 
 ## Developer resources
 
-- [Shopify Checkout UI extensions](https://shopify.dev/docs/api/checkout-ui-extensions)
+- [Shopify POS extensions](https://shopify.dev/docs/apps/pos)
 - [Shopify CLI](https://shopify.dev/docs/apps/tools/cli)
 - [Shopify App Template](https://shopify.dev/docs/apps/tools/cli)
