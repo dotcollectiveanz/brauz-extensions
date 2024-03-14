@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "984f54452a35d7b3b30086c6f27f0bad"
+name = "DotApparel Core Demo"
+application_url = "https://dotdev-dotapparel21-au.web.app/"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = ""
+
+[auth]
+redirect_urls = [ "https://dotdev-dotapparel21-au.web.app/api/callback" ]
+
+[webhooks]
+api_version = "2022-04"
+
+[app_proxy]
+url = "https://australia-southeast1-dotdev-dotapparel21-au.cloudfunctions.net/"
+subpath = "dotapparel"
+prefix = "apps"
+
+[pos]
+embedded = false
+
+[app_preferences]
+url = "https://dotdev-dotapparel21-au.web.app/settings"
