@@ -1,5 +1,5 @@
-import createBadges from "./createBadges";
-import dateFormatter from "./dateFormatter";
+import createBadges from "../helper/createBadges";
+import dateFormatter from "../helper/dateFormatter";
 import { useState, useEffect } from "react";
 import {
   ListProps,
@@ -45,6 +45,9 @@ export default function useTransformReservationsData() {
     );
   };
 
+  const filterReservationsToOldestFirst = (reservations: any) => {};
+  const filterReservationsToNewestFirst = (reservations: any) => {};
+
   const transformReservationToListProps = (reservation: any) => {
     let formatted_product_price = new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -72,12 +75,13 @@ export default function useTransformReservationsData() {
           id: reservation.reservation_gid,
           name: reservation.customer_name,
           email: reservation.customer_email,
+          phone: reservation.customer_phone,
           product_image: reservation.product_image,
           product_price: formatted_product_price.format(
             reservation.product_total_price,
           ),
           product_variant: "Black / S", //need to find out where variant is stored
-          product_sku: "XYZ1234", //need to find out where sku is stored
+          product_sku: reservation.product_thirdparty_id || "Not available",
           product_name: reservation.product_name,
           location: "Chadstone", //need to find out where location is stored
           collection_date: collection_date,

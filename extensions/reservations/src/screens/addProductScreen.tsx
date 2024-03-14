@@ -10,7 +10,8 @@ import {
   Section,
   TextField,
 } from "@shopify/retail-ui-extensions-react";
-import PageHeader from "./components/headers/PageHeader";
+import PageHeader from "../components/headers/PageHeader";
+import TopPageLayout from "../components/layouts/TopPageLayout";
 
 export default function AddProductScreen() {
   const api = useExtensionApi<"pos.home.modal.render">();
@@ -75,7 +76,7 @@ export default function AddProductScreen() {
       name="AddProductScreen"
       title="Add product"
     >
-      <Stack direction="vertical" paddingHorizontal="ExtraExtraLarge">
+      <TopPageLayout>
         <PageHeader
           title="Add a product"
           description="Only one product can be reserved per reservation"
@@ -92,7 +93,7 @@ export default function AddProductScreen() {
             placeholder="Search product"
           />
         </Stack>
-      </Stack>
+      </TopPageLayout>
       <ScrollView>
         {list[0].data.length < 1 ? (
           <Stack title="Reserved">

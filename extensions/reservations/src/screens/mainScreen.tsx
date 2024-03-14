@@ -13,7 +13,7 @@ import {
 } from "@shopify/retail-ui-extensions-react";
 import { useState, useEffect } from "react";
 import { data } from "../mock_data/data";
-import useTransformReservationsData from "../helper/useTransformReservationsData";
+import useTransformReservationsData from "../hooks/useTransformReservationsData";
 import PageHeader from "../components/headers/PageHeader";
 import TopPageLayout from "../components/layouts/TopPageLayout";
 import BottomPageLayout from "../components/layouts/BottomPageLayout";

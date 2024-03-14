@@ -2,7 +2,7 @@
 
 client_id = "7bcd60e8f81fcb2fde9366f79209de0e"
 name = "brauz-extensions"
-application_url = "https://ranges-denmark-opportunities-eg.trycloudflare.com"
+application_url = "https://customer-spending-nut-burton.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://ranges-denmark-opportunities-eg.trycloudflare.com/auth/callback",
-  "https://ranges-denmark-opportunities-eg.trycloudflare.com/auth/shopify/callback",
-  "https://ranges-denmark-opportunities-eg.trycloudflare.com/api/auth/callback"
+  "https://customer-spending-nut-burton.trycloudflare.com/auth/callback",
+  "https://customer-spending-nut-burton.trycloudflare.com/auth/shopify/callback",
+  "https://customer-spending-nut-burton.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
